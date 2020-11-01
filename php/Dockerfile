@@ -2,7 +2,11 @@ FROM php:7.4-fpm-alpine
 
 RUN apk update
 # RUN apk add git nano vim sqlite-dev postgresql-dev libxml2-dev curl-dev libcurl gd libmcrypt-dev libjpeg oniguruma-dev freetype-dev php7-dev
-RUN apk add git nano vim
+RUN apk add git nano vim nodejs npm
+
+RUN npm install -g yarn
+
+RUN yarn add cross-env -g
 
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/bin/
 

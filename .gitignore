@@ -1,3 +1,4 @@
 .env
 nginx/logs
-
+mariadb/databases/
+mariadb/logs/

@@ -19,12 +19,18 @@ services:
             MYSQL_DATABASE: ${MYSQL_DATABASE}
             MYSQL_USER: ${MYSQL_USER}
             MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+        volumes: 
+            - ./mariadb/databases:/var/lib/mysql
     php:
         build:
             context: ./
             dockerfile: ./php/Dockerfile
         volumes:
             - ../:/var/www/html/
+            - ./php/conf/php.ini:/usr/local/etc/php/php.ini
+        ports:
+            - "${MIX_HOST_PORT}:8080"
+            - "${BROWSER_SYNC_UI_HOST_PORT}:3001"
+            - "${BROWSER_SYNC_HOST_PORT}:3002"
         depends_on:
             - mariadb
-        

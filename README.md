@@ -46,5 +46,3 @@ $ docker-compose exec php sh
 
 If you saw a message such as ADDR_IN_USE this is commonly caused by the host machine that some of the services that is running and listening to the specific port. Try to stop the services or change the port settings in docker-compose.yaml file.
 
-## Planning on adding more services
-Node JS, NPM and Yarn
